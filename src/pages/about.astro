@@ -1,11 +1,14 @@
 ---
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+
 const pageTitle = "About Me";
 
 const identity = {
   firstName: "Jess",
   country: "Germany",
   occupation: "Frontent Developer",
-  hobbies: ["Guitar", "Surfing", "Climing", "Swimming"],
+  hobbies: ["Playing guitar", "Surfing", "Climing", "Swimming"],
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Git", "Astro"];
@@ -13,6 +16,10 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Git", "Astro"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "800";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -22,12 +29,22 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform+: var(--textCase);
+      }
+    </style>
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
+      <Navigation />
     </nav>
     <h1>{pageTitle}</h1>
     <h1>... and my new Astro site!</h1>
@@ -52,8 +69,21 @@ const goal = 3;
       }
       <p>My skills are:</p>
       <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
       </ul>
     </ul>
+    <p>
+      I want to work as a freelance developer and Astro might be able to help me
+      finish projects faster. So once this tutorial is done, I'll start working
+      on finding a niche. If you're interested <a href="3">contact me</a>.
+    </p>
+    <form>
+      <label for="name">Name:</label>
+      <input id="name" type="text" />
+      <label for="email">Email:</label>
+      <input id="email" type="text" />
+      <label for="msg">Message me:</label>
+      <textarea id="msg" rows="4" cols="50"></textarea>
+    </form>
   </body>
 </html>
