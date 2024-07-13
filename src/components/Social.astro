@@ -1,0 +1,14 @@
+---
+const {platform, username, faName} = Astro.props;
+---
+
+<li><a href={`https://www.${platform}.com/${username}`}><i class={`fa-brands ${faName}`} arialable={`${platform} icon.`}/></i></a></li>
+
+<style>
+    a{
+        color: #4c1d95;
+        background-color: ;
+        text-decoration: none;
+        font-size:1.3rem;
+    }
+</style>

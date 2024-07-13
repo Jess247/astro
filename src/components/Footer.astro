@@ -1,4 +1,5 @@
 ---
+import Social from './Social.astro';
 const platform = "Github";
 const username = "jess247";
 ---
@@ -11,10 +12,37 @@ const username = "jess247";
     <div>
         <h3>Find me on social media</h3>
         <ul>
-            <li><a href="https://www.google.com"><i class="fa-brands fa-x-twitter" arialable="Twitter icon."></i></a></li>
-            <li><a href="https://www.google.com"><i class="fa-brands fa-linkedin" arialable="LinkedIn icon."></i></a></li>
-            <li><a href="https://www.google.com"><i class="fa-brands fa-github" arialable="Twitter icon."></i></a></li>
+            <Social platform="twitter" username="placeholder" faName="fa-x-twitter"/>
+            <Social platform="linkedIn" username="placeholder" faName="fa-linkedin"/>
+            <Social platform="github" username="placeholder" faName="fa-github"/>
         </ul>
     </div>
   </p>
 </footer>
+
+<style>
+    footer {
+        position: fixed;
+        width: 100vw;
+        background-color: #252525;
+        color:white;
+        padding:1em 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    ul{
+        display: flex;
+        gap: 1em;
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        color: magenta;
+    }
+</style>
