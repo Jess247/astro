@@ -1,7 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greating from "../components/Greating"
 const pageTitle = "Home Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
+  <Greating client:load messages={["Hej", "Hallo", "Hola", "Ciao"]}/>
 </BaseLayout>
